@@ -18,9 +18,10 @@ joursParMois = [31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 def saisirDate():
     while True:
 
-        jour = int(input("jour: "))
-        mois = int(input("mois: "))
-        annee = int(input("année: "))
+        print("Saisissez la date au format jj/mm/aaaa\n")
+        jour = int(input("Saisissez un jour: "))
+        mois = int(input("Saisissez un mois(format MM): "))
+        annee = int(input("Saisissez une année: "))
 
         d = {"j": jour, "m": mois, "a": annee}
         if not dateValide(d):
@@ -30,9 +31,11 @@ def saisirDate():
 
     return d
 
+
 # renvoie vrai ou faux selon si l'année est bissextile ou non.
 def estBissextile(a):
     return (a % 400 == 0) or (a % 4 == 0 and not a % 100 == 0)
+
 
 # renvoie vrai ou faux selon si la date est valide.
 
@@ -72,13 +75,13 @@ def calculerJDLS(d):
     return j
 
 
-# afiche le resultat
+# afficher le resultat
 def afficher(d, jdls):
-    print("Le jour de la semaine du", d["j"], tableauMois[d["m"] - 1], d["a"], "est un", tableauJDLS[jdls]," :)")
+    print("Le jour de la semaine du", d["j"], tableauMois[d["m"] - 1], d["a"], "est un", tableauJDLS[jdls], " :)")
 
 
 # programme principal
-print("Premiers pas dans l'eau, Calendrier Grégorien.")
+print("Premiers pas dans l'eau, Calendrier Grégorien\n")
 date = saisirDate()
 jdls = calculerJDLS(date)
 afficher(date, jdls)
